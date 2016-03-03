@@ -5,3 +5,5 @@ composer.lock
 # directories
 .idea/
 vendor/
+log/*
+cache/*
