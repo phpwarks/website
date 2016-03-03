@@ -1,0 +1,38 @@
+- name: Add pre-reqs
+  sudo: yes
+  apt: pkg={{ item }} state=present
+  with_items:
+   - python-pycurl
+   - curl
+  tags:
+    - init
+
+- name: Add ruby PPA
+  sudo: yes
+  apt_repository: repo='ppa:brightbox/ruby-ng-experimental'
+  tags:
+    - init
+
+- name: Add NodeJS PPA
+  sudo: yes
+  shell: curl -sL https://deb.nodesource.com/setup | bash -
+  tags:
+    - init
+
+- name: Update apt cache
+  sudo: yes
+  apt: update_cache=yes
+  tags:
+    - init
+
+- name: Install packages
+  sudo: yes
+  apt: pkg={{ item }}
+  with_items: packages
+  tags:
+    - init
+
+- name: Create .vimrc file
+  template: src=vimrc.tpl dest=/home/vagrant/.vimrc
+  tags:
+    - init

@@ -1,0 +1,6 @@
+- name: Install Ruby packages
+  sudo: yes
+  command: gem install {{ item }}
+  with_items: ruby_packages
+  tags:
+    - ruby

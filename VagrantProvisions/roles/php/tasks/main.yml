@@ -1,0 +1,125 @@
+- git: repo=https://github.com/php/php-src.git
+       dest=/home/vagrant/php-src
+       version=PHP-7.0.0
+       depth=1
+  tags:
+    - php
+
+- name: Build configuration
+  command: ./buildconf --force
+  args:
+    chdir: /home/vagrant/php-src
+  tags:
+    - php
+
+- name: Run configuration
+  command: ./configure --with-config-file-path=/etc/php --with-iconv --with-openssl --with-pdo-mysql --with-curl --with-mcrypt --with-libedit --enable-mbstring --enable-bcmath --enable-debug --enable-fpm --with-fpm-user=nginx --with-fpm-group=nginx --enable-opcache --enable-maintainer-zts --enable-zip --without-pear
+  args:
+    chdir: /home/vagrant/php-src
+  tags:
+    - php
+
+- name: Make PHP
+  command: make
+  args:
+    chdir: /home/vagrant/php-src
+  tags:
+    - php
+
+- name: Create entry for PHP in `/etc` Directory
+  sudo: yes
+  file: path=/etc/php state=directory mode=0755
+  tags:
+    - php
+
+- name: Create entry for log in `/usr/local` Directory
+  sudo: yes
+  file: path=/usr/local/log state=directory mode=0755
+  tags:
+    - php
+
+- name: Install PHP
+  sudo: yes
+  command: make install
+  args:
+    chdir: /home/vagrant/php-src
+
+- name: Add php.ini
+  sudo: yes
+  template: src=php.ini.tpl dest=/etc/php/php.ini
+  tags:
+    - php
+    - ini
+
+- name: Getting XDebug 2.4.0rc4
+  get_url: url=https://xdebug.org/files/xdebug-2.4.0rc4.tgz dest=/tmp/xdebug.tar.gz validate_certs=no
+  tags:
+    - php
+
+- name: Extract XDebug 2.4.0rc4
+  unarchive: src=/tmp/xdebug.tar.gz dest=/home/vagrant/ copy=no
+  tags:
+    - php
+
+- name: phpize xdebug
+  sudo: yes
+  command: /usr/local/bin/phpize ./
+  args:
+    chdir: /home/vagrant/xdebug-2.4.0RC4
+  tags:
+    - php
+
+- name: Make & install XDebug 2.4.0rc4
+  sudo: yes
+  command: ./configure --enable-xdebug
+  args:
+    chdir: /home/vagrant/xdebug-2.4.0RC4
+  tags:
+    - php
+
+- name: Make XDebug 2.4.0rc4
+  sudo: yes
+  command: make
+  args:
+    chdir: /home/vagrant/xdebug-2.4.0RC4
+  tags:
+    - php
+
+- name: Install XDebug 2.4.0rc4
+  sudo: yes
+  command: make install
+  args:
+    chdir: /home/vagrant/xdebug-2.4.0RC4
+  tags:
+    - php
+
+- name: Add php-fpm.conf
+  sudo: yes
+  template: src=php-fpm.conf.tpl dest=/usr/local/etc/php-fpm.conf
+  tags:
+    - php
+
+- name: Load php-fpm phpwarks configuration
+  sudo: yes
+  template: src=phpwarks.conf.tpl dest=/usr/local/etc/php-fpm.d/phpwarks.conf
+  tags:
+    - php
+
+- name: Load php-fpm service script
+  sudo: yes
+  template: src=php-fpm dest=/etc/init.d/php-fpm mode="0755"
+  notify:
+    - phpfpm.start
+  tags:
+    - php
+
+- name: Download Composer
+  shell: curl -Ss https://getcomposer.org/installer | php
+  tags:
+    - php
+
+- name: Install composer
+  sudo: yes
+  shell: mv composer.phar /usr/local/bin/composer
+  tags:
+    - php

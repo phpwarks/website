@@ -1,0 +1,44 @@
+---
+- hosts: all
+  vars:
+    packages:
+      # Core packages
+      - git
+      - curl
+      - vim
+      # PHP Build specific
+      - build-essential
+      - autoconf
+      - automake
+      - libtool
+      - bison
+      - re2c
+      ## Needed for PHP ##
+      - libxml2-dev
+      ## Needed for PHP --with-openssl flag [http://php.net/manual/en/book.openssl.php]
+      - openssl
+      - pkg-config
+      - libssl-dev
+      - libcurl4-openssl-dev
+      ## Needed for --with-mcrypt flag [http://php.net/manual/en/book.mcrypt.php]
+      - libmcrypt-dev
+      ## Needed for PHP --with-libedit flag [http://php.net/manual/en/readline.installation.php]
+      - libedit-dev
+      ## PHP Deps end ##
+      # Vendor specific
+      - nginx-full
+      - ruby2.0
+      - nodejs
+      # MySQL
+      - mysql-server
+      - python-mysqldb
+    ruby_packages:
+      - sass
+
+  roles:
+    - initialise
+    - nginx
+    - php
+    - ruby
+    - boot
+    - MySQL

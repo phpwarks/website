@@ -1,0 +1,18 @@
+- name: Start Nginx
+  sudo: yes
+  service: name=nginx state=started
+  tags:
+    - service
+
+- name: Start PHP-FPM
+  sudo: yes
+  service: name=php-fpm state=restarted
+  tags:
+    - service
+
+- name: Composer install deps
+  shell: composer install
+  args:
+    chdir: /var/www
+  tags:
+    - composer
