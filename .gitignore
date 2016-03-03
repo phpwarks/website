@@ -1,9 +1,6 @@
-vendor/*
-.vagrant/*
-vagrant.rb
-auth.json
+# Files
 composer.json
-composer.lock
-provision.yml
-Vagrantfile
-ansible
+
+# directories
+.idea/
+vendor/
