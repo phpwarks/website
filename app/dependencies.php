@@ -41,6 +41,6 @@ $container['logger'] = function ($c) {
 // Action factories
 // -----------------------------------------------------------------------------
 
-$container['App\Action\HomeAction'] = function ($c) {
-    return new App\Action\HomeAction($c->get('view'), $c->get('logger'));
+$container['PHPWarks\Welcome\HomeAction'] = function ($c) {
+    return new PHPWarks\Welcome\HomeAction($c->get('view'), $c->get('logger'));
 };
