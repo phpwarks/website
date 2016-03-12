@@ -1,39 +1,50 @@
 <?php
-/**
- * @see license
- */
+/** @see license */
 namespace PHPWarks\Welcome;
 
 use Slim\Views\Twig;
-use Psr\Log\LoggerInterface;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ {
+    ServerRequestInterface as Request,
+    ResponseInterface      as Response
+};
 
 /**
+ * Website home page
+ *
  * @author Nigel Greenway <github@futurepixels.co.uk>
  */
 final class HomeAction
-{ 
+{
+    /** @var Twig $view */
     private $view;
-    private $logger;
 
+    /**
+     * Constructor
+     *
+     * @param Twig $view
+     */
     public function __construct(
-        Twig            $view,
-        LoggerInterface $logger
+        Twig $view
     ) {
         $this->view = $view;
-        $this->logger = $logger;
     }
 
+    /**
+     * Action dispatcher
+     *
+     * @param Request  $request
+     * @param Response $response
+     * @param array    $args
+     *
+     * @return Response
+     */
     public function dispatch(
-        Request $request,
+        Request  $request,
         Response $response,
-        array $args
+        array    $args
     ) {
-        $this->logger->info("Home page action dispatched");
-        
-        $this->view->render($response, 'home.twig');
-        
+        $this->view->render($response, '@Welcome/home.html.twig');
+
         return $response;
     }
 }

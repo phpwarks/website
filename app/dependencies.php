@@ -42,5 +42,5 @@ $container['logger'] = function ($c) {
 // -----------------------------------------------------------------------------
 
 $container['PHPWarks\Welcome\HomeAction'] = function ($c) {
-    return new PHPWarks\Welcome\HomeAction($c->get('view'), $c->get('logger'));
+    return new PHPWarks\Welcome\HomeAction($c->get('view'));
 };
