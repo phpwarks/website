@@ -41,6 +41,30 @@ $container['logger'] = function ($c) {
 // Action factories
 // -----------------------------------------------------------------------------
 
+// Welcome actions
 $container['PHPWarks\Welcome\HomeAction'] = function ($c) {
     return new PHPWarks\Welcome\HomeAction($c->get('view'));
+};
+
+// Event actions
+$container['PHPWarks\Event\HomeAction'] = function ($c) {
+    return new PHPWarks\Event\HomeAction($c->get('view'));
+};
+$container['PHPWarks\Event\PastAction'] = function ($c) {
+    return new PHPWarks\Event\PastAction($c->get('view'));
+};
+$container['PHPWarks\Event\ProposeAction'] = function ($c) {
+    return new PHPWarks\Event\ProposeAction($c->get('view'));
+};
+$container['PHPWarks\Event\RequestAction'] = function ($c) {
+    return new PHPWarks\Event\RequestAction($c->get('view'));
+};
+$container['PHPWarks\Event\UpcomingAction'] = function ($c) {
+    return new PHPWarks\Event\UpcomingAction($c->get('view'));
+};
+$container['PHPWarks\Event\PastByYearAction'] = function ($c) {
+    return new PHPWarks\Event\PastByYearAction($c->get('view'));
+};
+$container['PHPWarks\Event\PastByYearAndMonthAction'] = function ($c) {
+    return new PHPWarks\Event\PastByYearAndMonthAction($c->get('view'));
 };

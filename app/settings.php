@@ -10,6 +10,7 @@ return [
             'template_path' => [
                 'Base'    => __DIR__ . '/../web/Core/Template',
                 'Welcome' => __DIR__ . '/../web/Welcome/Templates',
+                'Event'   => __DIR__ . '/../web/Event/Templates',
             ],
             'twig' => [
 //                'cache' => __DIR__ . '/../cache/twig', // Disabled for initial development | todo: remove me
