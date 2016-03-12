@@ -7,7 +7,10 @@ return [
 
         // View settings
         'view' => [
-            'template_path' => __DIR__ . '/templates',
+            'template_path' => [
+                'Base'    => __DIR__ . '/../web/Core/Template',
+                'Welcome' => __DIR__ . '/../web/Welcome/Templates',
+            ],
             'twig' => [
 //                'cache' => __DIR__ . '/../cache/twig',
                 'debug' => true,
