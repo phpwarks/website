@@ -22,7 +22,7 @@ $app->get('/events/past/{year}/{month}', 'PHPWarks\Event\PastByYearAndMonthActio
     ->setName('event_past_by_year_and_month');
 
 // Contact:
-$app->map(['GET', 'POST'], '/contact', 'PHPWarks\Contact\ContactAction::dispatch')
+$app->map(['GET', 'POST'], '/contact', 'PHPWarks\Contact\ContactAction:dispatch')
     ->setName('contact_us');
 
 // Communities:
