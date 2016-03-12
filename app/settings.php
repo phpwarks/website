@@ -3,7 +3,7 @@ return [
     'settings' => [
         // Slim Settings
         'determineRouteBeforeAppMiddleware' => false,
-        'displayErrorDetails' => true,
+        'displayErrorDetails'               => true,
 
         // View settings
         'view' => [
@@ -12,8 +12,8 @@ return [
                 'Welcome' => __DIR__ . '/../web/Welcome/Templates',
             ],
             'twig' => [
-//                'cache' => __DIR__ . '/../cache/twig',
-                'debug' => true,
+//                'cache' => __DIR__ . '/../cache/twig', // Disabled for initial development | todo: remove me
+                'debug'       => true,
                 'auto_reload' => true,
             ],
         ],
