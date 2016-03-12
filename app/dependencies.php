@@ -68,3 +68,8 @@ $container['PHPWarks\Event\PastByYearAction'] = function ($c) {
 $container['PHPWarks\Event\PastByYearAndMonthAction'] = function ($c) {
     return new PHPWarks\Event\PastByYearAndMonthAction($c->get('view'));
 };
+
+// Contact actions
+$container['PHPWarks\Contact\ContactAction'] = function ($c) {
+    return new PHPWarks\Contact\ContactAction($c->get('view'));
+};

@@ -9,6 +9,7 @@ return [
         'view' => [
             'template_path' => [
                 'Base'    => __DIR__ . '/../web/Core/Template',
+                'Contact' => __DIR__ . '/../web/Contact/Templates',
                 'Event'   => __DIR__ . '/../web/Event/Templates',
                 'Welcome' => __DIR__ . '/../web/Welcome/Templates',
             ],
