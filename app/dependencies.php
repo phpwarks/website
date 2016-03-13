@@ -73,3 +73,8 @@ $container['PHPWarks\Event\PastByYearAndMonthAction'] = function ($c) {
 $container['PHPWarks\Contact\ContactAction'] = function ($c) {
     return new PHPWarks\Contact\ContactAction($c->get('view'));
 };
+
+// Sponsor actions
+$container['PHPWarks\Sponsors\OurSponsorsAction'] = function ($c) {
+    return new PHPWarks\Sponsors\OurSponsorsAction($c->get('view'));
+};
