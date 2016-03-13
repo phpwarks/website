@@ -78,3 +78,11 @@ $container['PHPWarks\Contact\ContactAction'] = function ($c) {
 $container['PHPWarks\Sponsors\OurSponsorsAction'] = function ($c) {
     return new PHPWarks\Sponsors\OurSponsorsAction($c->get('view'));
 };
+
+// Communities actions
+$container['PHPWarks\Communities\OtherAction'] = function ($c) {
+    return new PHPWarks\Communities\OtherAction($c->get('view'));
+};
+$container['PHPWarks\Communities\GetInvolvedAction'] = function ($c) {
+    return new PHPWarks\Communities\GetInvolvedAction($c->get('view'));
+};
