@@ -26,9 +26,9 @@ $app->map(['GET', 'POST'], '/contact', 'PHPWarks\Contact\ContactAction:dispatch'
     ->setName('contact_us');
 
 // Communities:
-$app->get('/our-sponsors', 'PHPWarks\Sponsors\OurSponsorsAction::dispatch')
+$app->get('/our-sponsors', 'PHPWarks\Sponsors\OurSponsorsAction:dispatch')
     ->setName('our_sponsors');
-$app->get('/communities/surrounding-communities', 'PHPWarks\Communities\OtherCommunitiesAction::dispatch')
+$app->get('/communities/surrounding-communities', 'PHPWarks\Communities\OtherCommunitiesAction:dispatch')
     ->setName('other_communities');
-$app->get('/communities/get-involved', 'PHPWarks\Communities\GetInvolvedAction::dispatch')
+$app->get('/communities/get-involved', 'PHPWarks\Communities\GetInvolvedAction:dispatch')
     ->setName('get_involved');
