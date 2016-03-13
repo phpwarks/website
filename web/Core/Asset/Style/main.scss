@@ -1,0 +1,50 @@
+body {
+    margin: 50px 0 0 0;
+    padding: 0;
+    width: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+}
+
+ul.navigation {
+    display: block;
+    list-style: none;
+    width: 420px;
+    height:30px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-bottom: 0;
+    margin-right: auto;
+    padding: 0;
+    text-align: center;
+
+    li.navigation--item {
+
+        padding: 0;
+        float: left;
+        margin:3px;
+
+        &:after {
+            content: " | ";
+        }
+
+        &:last-child {
+            &:after {
+                content: "";
+            }
+        }
+
+        a {
+            text-decoration: none;
+
+
+            &:visited {
+                color:inherit;
+            }
+
+        }
+
+    }
+}
