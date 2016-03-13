@@ -30,7 +30,7 @@ $app->get('/our-sponsors', 'PHPWarks\Sponsors\OurSponsorsAction:dispatch')
     ->setName('our_sponsors');
 
 // Communities:
-$app->get('/communities/surrounding-communities', 'PHPWarks\Communities\OtherCommunitiesAction:dispatch')
+$app->get('/communities/surrounding', 'PHPWarks\Communities\OtherAction:dispatch')
     ->setName('other_communities');
 $app->get('/communities/get-involved', 'PHPWarks\Communities\GetInvolvedAction:dispatch')
     ->setName('get_involved');
