@@ -9,11 +9,11 @@ use Psr\Http\Message\ {
 };
 
 /**
- * Other surrounding communities page
+ * Communities home page
  *
  * @author Nigel Greenway <github@futurepixels.co.uk>
  */
-final class OtherAction
+final class HomeAction
 {
     /** @var Twig $view */
     private $view;

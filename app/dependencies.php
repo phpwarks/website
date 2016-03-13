@@ -80,8 +80,8 @@ $container['PHPWarks\Sponsors\OurSponsorsAction'] = function ($c) {
 };
 
 // Communities actions
-$container['PHPWarks\Communities\OtherAction'] = function ($c) {
-    return new PHPWarks\Communities\OtherAction($c->get('view'));
+$container['PHPWarks\Communities\HomeAction'] = function ($c) {
+    return new PHPWarks\Communities\HomeAction($c->get('view'));
 };
 $container['PHPWarks\Communities\GetInvolvedAction'] = function ($c) {
     return new PHPWarks\Communities\GetInvolvedAction($c->get('view'));
