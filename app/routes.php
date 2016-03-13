@@ -25,9 +25,11 @@ $app->get('/events/past/{year}/{month}', 'PHPWarks\Event\PastByYearAndMonthActio
 $app->map(['GET', 'POST'], '/contact', 'PHPWarks\Contact\ContactAction:dispatch')
     ->setName('contact_us');
 
-// Communities:
+// Sponsors
 $app->get('/our-sponsors', 'PHPWarks\Sponsors\OurSponsorsAction:dispatch')
     ->setName('our_sponsors');
+
+// Communities:
 $app->get('/communities/surrounding-communities', 'PHPWarks\Communities\OtherCommunitiesAction:dispatch')
     ->setName('other_communities');
 $app->get('/communities/get-involved', 'PHPWarks\Communities\GetInvolvedAction:dispatch')
