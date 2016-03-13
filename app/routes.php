@@ -26,11 +26,11 @@ $app->map(['GET', 'POST'], '/contact', 'PHPWarks\Contact\ContactAction:dispatch'
     ->setName('contact_us');
 
 // Sponsors
-$app->get('/our-sponsors', 'PHPWarks\Sponsors\OurSponsorsAction:dispatch')
+$app->get('/our-sponsors', 'PHPWarks\Sponsor\OurSponsorsAction:dispatch')
     ->setName('our_sponsors');
 
-// Communities:
-$app->get('/other-communities', 'PHPWarks\Communities\HomeAction:dispatch')
+// Community:
+$app->get('/other-communities', 'PHPWarks\Community\HomeAction:dispatch')
     ->setName('other_communities');
-$app->get('/get-involved', 'PHPWarks\Communities\GetInvolvedAction:dispatch')
+$app->get('/get-involved', 'PHPWarks\Community\GetInvolvedAction:dispatch')
     ->setName('get_involved');

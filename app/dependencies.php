@@ -79,10 +79,10 @@ $container['PHPWarks\Sponsors\OurSponsorsAction'] = function ($c) {
     return new PHPWarks\Sponsors\OurSponsorsAction($c->get('view'));
 };
 
-// Communities actions
-$container['PHPWarks\Communities\HomeAction'] = function ($c) {
-    return new PHPWarks\Communities\HomeAction($c->get('view'));
+// Community actions
+$container['PHPWarks\Community\HomeAction'] = function ($c) {
+    return new PHPWarks\Community\HomeAction($c->get('view'));
 };
-$container['PHPWarks\Communities\GetInvolvedAction'] = function ($c) {
-    return new PHPWarks\Communities\GetInvolvedAction($c->get('view'));
+$container['PHPWarks\Community\GetInvolvedAction'] = function ($c) {
+    return new PHPWarks\Community\GetInvolvedAction($c->get('view'));
 };

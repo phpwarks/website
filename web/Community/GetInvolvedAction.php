@@ -1,6 +1,6 @@
 <?php
 /** @see license */
-namespace PHPWarks\Communities;
+namespace PHPWarks\Community;
 
 use Slim\Views\Twig;
 use Psr\Http\Message\ {
@@ -9,11 +9,11 @@ use Psr\Http\Message\ {
 };
 
 /**
- * Communities home page
+ * Get involved with other communities page
  *
  * @author Nigel Greenway <github@futurepixels.co.uk>
  */
-final class HomeAction
+final class GetInvolvedAction
 {
     /** @var Twig $view */
     private $view;
@@ -43,7 +43,7 @@ final class HomeAction
         Response $response,
         array    $args
     ) {
-        $this->view->render($response, '@Communities/others.html.twig');
+        $this->view->render($response, '@Community/get_involved.html.twig');
 
         return $response;
     }

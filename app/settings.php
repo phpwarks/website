@@ -8,12 +8,12 @@ return [
         // View settings
         'view' => [
             'template_path' => [
-                'Base'        => __DIR__ . '/../web/Core/Template',
-                'Communities' => __DIR__ . '/../web/Communities/Templates',
-                'Contact'     => __DIR__ . '/../web/Contact/Templates',
-                'Event'       => __DIR__ . '/../web/Event/Templates',
-                'Welcome'     => __DIR__ . '/../web/Welcome/Templates',
-                'Sponsor'     => __DIR__ . '/../web/Sponsors/Templates',
+                'Base'      => __DIR__ . '/../web/Core/Template',
+                'Community' => __DIR__ . '/../web/Community/Templates',
+                'Contact'   => __DIR__ . '/../web/Contact/Templates',
+                'Event'     => __DIR__ . '/../web/Event/Templates',
+                'Welcome'   => __DIR__ . '/../web/Welcome/Templates',
+                'Sponsor'   => __DIR__ . '/../web/Sponsors/Templates',
             ],
             'twig' => [
 //                'cache' => __DIR__ . '/../cache/twig', // Disabled for initial development | todo: remove me
