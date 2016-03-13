@@ -26,7 +26,7 @@ $app->map(['GET', 'POST'], '/contact', 'PHPWarks\Contact\ContactAction:dispatch'
     ->setName('contact_us');
 
 // Sponsors
-$app->get('/our-sponsors', 'PHPWarks\Sponsor\OurSponsorsAction:dispatch')
+$app->get('/our-sponsors', 'PHPWarks\Sponsors\OurSponsorsAction:dispatch')
     ->setName('our_sponsors');
 
 // Community:
