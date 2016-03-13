@@ -1,5 +1,6 @@
 # Files
 composer.lock
+public/css/style.css
 
 # directories
 .idea/
