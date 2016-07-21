@@ -2,6 +2,7 @@
 /** @see license */
 namespace PHPWarks\Welcome;
 
+use GuzzleHttp\Client;
 use Slim\Views\Twig;
 use Psr\Http\Message\ {
     ServerRequestInterface as Request,
@@ -15,18 +16,23 @@ use Psr\Http\Message\ {
  */
 final class HomeAction
 {
-    /** @var Twig $view */
+    /** @var Twig   $view */
     private $view;
+    /** @var Client $meetupAPI */
+    private $meetupAPI;
 
     /**
      * Constructor
      *
-     * @param Twig $view
+     * @param Twig   $view
+     * @param Client $meetupAPI
      */
     public function __construct(
-        Twig $view
+        Twig $view,
+        Client $meetupAPI
     ) {
-        $this->view = $view;
+        $this->view      = $view;
+        $this->meetupAPI = $meetupAPI;
     }
 
     /**
@@ -43,8 +49,24 @@ final class HomeAction
         Response $response,
         array    $args
     ) {
-        $this->view->render($response, '@Welcome/home.html.twig');
+        return $this->view->render($response, '@Welcome/home.html.twig', [
+            'meetup' => [
+                'future' => json_decode($this->futureEvents()),
+            ],
+        ]);
+    }
 
-        return $response;
+    private function futureEvents()
+    {
+        $payload = $this
+            ->meetupAPI
+            ->request('GET', '/PHP-Warwickshire/events', [
+                'sign' => 'true',
+                'key'  => '683d6d3f25744ae5d631c1a424437',
+            ]);
+
+        return $payload
+            ->getBody()
+            ->getContents();
     }
 }

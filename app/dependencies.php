@@ -37,13 +37,19 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
+$container['api.meetup'] = function ($c) {
+    return new \GuzzleHttp\Client([
+        'base_uri' => 'http://api.meetup.com',
+    ]);
+};
+
 // -----------------------------------------------------------------------------
 // Action factories
 // -----------------------------------------------------------------------------
 
 // Welcome actions
 $container['PHPWarks\Welcome\HomeAction'] = function ($c) {
-    return new PHPWarks\Welcome\HomeAction($c->get('view'));
+    return new PHPWarks\Welcome\HomeAction($c->get('view'), $c->get('api.meetup'));
 };
 
 // Event actions
