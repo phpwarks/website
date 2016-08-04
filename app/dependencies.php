@@ -1,6 +1,7 @@
 <?php
 // DIC configuration
 
+/** @var \Pimple\Container $container */
 $container = $app->getContainer();
 
 // -----------------------------------------------------------------------------
