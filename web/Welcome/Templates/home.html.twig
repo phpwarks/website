@@ -4,10 +4,10 @@
 
 {% block body %}
     <p>
-        We are situated within the Engineering and Computing Building, Coventry University. We are located in on the ground floor (the one you enter in) and are in Room <a href="/image/engineering-and-computing-floorplan.jpg" target="_blank">ECG 02</a>. <a href="#show-map" id="show-google-map">Show Google Map</a>
+        We are situated within the <a href="#show-venue-location" id="show-venue">Engineering and Computing Building, Coventry University</a>. We are located in on the ground floor (the one you enter when you arrive) and are in Room <a href="#show-building-map" id="show-floor-map">ECG 02</a>.
     </p>
     <iframe
-        class="google-map"
+        class="[ google-map--venue ][ u-hidden ]"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d611.3115108624615!2d-1.5003070999999988!3d52.40529140000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x65f826135d301789!2sEngineering+and+Computing+Building%2C+Coventry+University!5e0!3m2!1sen!2sus!4v1468961326919"
         width="100%"
         height="450"
@@ -15,28 +15,29 @@
         style="border:0"
         allowfullscreen
     ></iframe>
+    <img
+        src="/image/engineering-and-computing-floorplan.jpg"
+        alt="EC Futures Floor Plan"
+        class="[ ec-future-building-map ][ u-hidden ]"
+    >
+    <p>
+        Our parking is situated <a href="#show-car-park-location" id="show-car-park">here</a> and is open until 11pm. 
+    </p>
+    <iframe
+        class="[ google-map--car-park ][ u-hidden ]"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d662.753052565344!2d-1.4987608787060795!3d52.40581124555747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x39dae0222f5e94e3!2sCoventry+University+Student+Car+Park!5e0!3m2!1sen!2sus!4v1469735879936"
+        width="100%"
+        height="450"
+        frameborder="0"
+        style="border:0"
+        allowfullscreen
+    ></iframe>
 
-    <h3>Upcomming Events</h3>
-    {% if meetup.future is not empty %}
-        {% for event in meetup.future %}
-            <h4>{{ event.name }}</h4>
-        {% endfor %}
-    {% else %}
-        <p>Oh, looks like we have nothing planned as of yet. Stay tuned!</p>
-    {% endif %}
+    <h3 id="upcoming-events">Fetching our upcomming events</h3>
+    <ul app-event="upcoming-events"></ul>
 
-    <script>
-        document.getElementById('show-google-map').addEventListener('click', function () {
-            var map = document.getElementsByClassName('google-map')[0];
+{% endblock %}
 
-            if (map.style.display == '' || map.style.display == 'none') {
-                map.style.display='block';
-                this.innerText='Hide Google Map';
-            } else {
-                map.style.display='none';
-                this.innerText='Show Google Map';
-            }
-        });
-    </script>
-
+{% block jquery %}
+    {% include '@Welcome/home.js.twig' %}
 {% endblock %}
