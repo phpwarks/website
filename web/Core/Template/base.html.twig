@@ -4,49 +4,58 @@
         <title>{% block page_title %}{% endblock %} | PHP Warwickshire</title>
         <link href='{{ base_url() }}/css/style.css' rel='stylesheet' type='text/css'>
     </head>
-    <body class="markdown-body">
+    <body>
 
-        <header>
-            <h1>PHP Warwickshire</h1>
-            <p>
-                A PHP user group based at <a href="https://www.google.com/maps/place/Engineering+and+Computing+Building,+Coventry+University/@52.4052914,-1.5003071,145m/data=!3m1!1e3!4m13!1m7!3m6!1s0x48774bc6317e6699:0x1c19448699c3791a!2sGulson+Rd,+Coventry+CV1+2JH,+UK!3b1!8m2!3d52.4058994!4d-1.4959289!3m4!1s0x0:0x65f826135d301789!8m2!3d52.4052899!4d-1.499663?hl=en" target="_blank">Engineering and Computing Building, Coventry University</a>.
-            </p>
-        </header>
+        <div class="wrapper">
 
-        <nav>
-            <ul>
-                {#<li>#}
-                    {#<a href="/">Welcome</a>#}
-                {#</li>#}
-                <li>
-                    <a href="http://www.meetup.com/PHP-Warwickshire" target="_blank">Join our Meetups Channel</a>
-                </li>
-                <li>
-                    <a href="http://twitter.com/phpwarks" target="_blank">@phpwarks</a>
-                </li>
-                <li>
-                    <a href="http://phpwarks.herokuapp.com/" target="_blank">Join us on slack</a>
-                </li>
-                {#<li class="navigation--item">#}
-                    {#<a href="/events">Events</a>#}
-                {#</li>#}
-                {#<li class="navigation--item">#}
-                    {#<a href="/contact">Contact Us</a>#}
-                {#</li>#}
-                {#<li class="navigation--item">#}
-                    {#<a href="/our-sponsors">Our Sponsors</a>#}
-                {#</li>#}
-                {#<li class="navigation--item">#}
-                    {#<a href="/communities">Communities</a>#}
-                {#</li>#}
-                {#<li class="navigation--item">#}
-                    {#<a href="/get-involved">Get Involved</a>#}
-                {#</li>#}
-            </ul>
-        </nav>
+            <header>
+                <h1>PHP Warwickshire</h1>
+                <p>
+                    A PHP user group based in Coventry City, UK
+                </p>
+            </header>
 
-    {% block body %}
-    {% endblock %}
+            <nav>
+                <ul class="o-list-bare">
+                    {#<li>#}
+                        {#<a href="/">Welcome</a>#}
+                    {#</li>#}
+                    <li>
+                        Join our <a href="http://www.meetup.com/PHP-Warwickshire" target="_blank">Meetups Channel</a>
+                    </li>
+                    <li>
+                        Follow us on Twitter, <a href="http://twitter.com/phpwarks" target="_blank">@phpwarks</a>
+                    </li>
+                    <li>
+                        Join us on <a href="http://phpwarks.herokuapp.com/" target="_blank">slack</a>
+                    </li>
+                    {#<li class="navigation--item">#}
+                        {#<a href="/events">Events</a>#}
+                    {#</li>#}
+                    {#<li class="navigation--item">#}
+                        {#<a href="/contact">Contact Us</a>#}
+                    {#</li>#}
+                    {#<li class="navigation--item">#}
+                        {#<a href="/our-sponsors">Our Sponsors</a>#}
+                    {#</li>#}
+                    {#<li class="navigation--item">#}
+                        {#<a href="/communities">Communities</a>#}
+                    {#</li>#}
+                    {#<li class="navigation--item">#}
+                        {#<a href="/get-involved">Get Involved</a>#}
+                    {#</li>#}
+                </ul>
+            </nav>
+            {% block body %}
+            {% endblock %}
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                {% block jquery %}{% endblock %}
+            });
+        </script>
     </body>
 </html>
 
