@@ -24,7 +24,8 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "PHPWarks\\": "web/"
+            "PHPWarks\\": "web/",
+            "PHPWarks\\API\\": "api/"
         }
     }
 }
