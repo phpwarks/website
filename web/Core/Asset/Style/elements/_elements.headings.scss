@@ -42,3 +42,7 @@ h5 {
 h6 {
     @include inuit-font-size($inuit-font-size-h6);
 }
+
+.block-heading {
+    padding: 10px 5px;
+}

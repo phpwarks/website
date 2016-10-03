@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+    web:
+        image: nginx:latest
+        ports:
+            - "80:80"
+        volumes:
+            - ./:/var/www
+            - ./.provisioning/nginx/phpwarks.conf:/etc/nginx/conf.d/phpwarks.conf
+        networks:
+            - code-network
+    php:
+        image: php:fpm
+        volumes:
+            - ./:/var/www
+        networks:
+            - code-network
+
+networks:
+    code-network:
+        driver: bridge
