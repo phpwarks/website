@@ -1,3 +1,0 @@
-- name: phpfpm.start
-  sudo: yes
-  service: name=php-fpm state=started
