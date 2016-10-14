@@ -28,7 +28,7 @@ build: _building _build composer-install sass
 
 # Start the docker containers
 run:
-	@docker-compose up
+	@docker-compose up $(ARGS)
 
 # Used for continuous development of the project locally
 watch:
