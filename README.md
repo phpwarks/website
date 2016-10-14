@@ -1,12 +1,18 @@
 # Read me
 
-Run `$ vagrant up` and give it around 8 minutes to build.
+This project is run fully on [Docker](https://docker.com), but don't worry you only have to install the [Docker engine](https://docker.github.io/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/).
 
-> There is a know issue where the `php-fpm` service does not start, to rectify, simply run `$ sudo service php-fpm start`.
+#### Building the project
 
-To build all required assets, simply run `make build`, then composer will be installed and SASS compiling will be ran.
+`make build`; yep, that's it in regards to getting the site containers provisioned. This will set up the site to run locally via [Docker](https://docker.com). It will pull all the images required ready for you to start building.
 
-> Run `make help` for more information
+Next up, run `make composer-install`. If all goes according to plan you should be able to see the `vendor` directory appear in the project root.
+
+#### Starting up the project
+
+`make run` will start up the docker and allow you to see the site via `http://0.0.0.0/`.
+
+On a side note, you will notice you terminal window is being populated with aggregated logs from all containers. TO hide this, simply run `make ARGS="-d" run`.
 
 __Directories:__
 
