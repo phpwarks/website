@@ -15,28 +15,34 @@ SASS_DEST=public/css/style.css
 ####
 PRODUCTION=prod
 
+PROJECT_DIRECTORY := $(shell pwd)
+
 ## End of variable setup ##
 
 # Defaults for running `make` on its own
 all: help
 
 # Used for building the dependencies for the project
-build: _building composer sass
+build: _building _build composer-install sass
 	@echo "Build complete"
+
+# Start the docker containers
+run:
+	@docker-compose up
 
 # Used for continuous development of the project locally
 watch:
 	sass --watch  --style compressed --trace $(SASS_SRC):$(SASS_DEST) --sourcemap=none
 
-composer:
+composer-install:
 ifdef env
 ifeq ($(env),$(PRODUCTION))
-	@composer install --no-dev -o
+	@docker run --rm -v ${PROJECT_DIRECTORY}:/app composer/composer install -o
 else
-	@composer install
+	@docker run --rm -v ${PROJECT_DIRECTORY}:/app composer/composer install
 endif
 else
-	@composer install
+	@docker run --rm -v ${PROJECT_DIRECTORY}:/app composer/composer install
 endif
 
 # Compile SASS to a CSS file
@@ -49,7 +55,7 @@ help:
 	@echo "      help              Show this help console"
 	@echo "      watch             Watch the SASS"
 	@echo "      build             Install all"
-	@echo "      composer          Update/Install composer vendors"
+	@echo "      composer-install  Update/Install composer vendors"
 	@echo "      sass              Compile CSS from the SASS files"
 	@echo ""
 	@echo "  Optional:"
@@ -66,3 +72,6 @@ clean:
 
 _building:
 	@echo "Installing project dependencies"
+
+_build:
+	@docker-compose build

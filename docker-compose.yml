@@ -11,7 +11,7 @@ services:
         networks:
             - code-network
     php:
-        image: php:fpm
+        build: ./.provisioning/php-fpm
         volumes:
             - ./:/var/www/phpwarks
         networks:
