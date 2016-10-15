@@ -1,6 +1,8 @@
 # Files
 composer.lock
 public/css/
+**/.DS_Store
+**/*.swp
 
 # directories
 .idea/
@@ -8,3 +10,4 @@ vendor/
 log/*
 cache/*
 .sass-cache
+node_modules
