@@ -43,6 +43,8 @@ endif
 
 yarn:
 	@yarn
+	@cp node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js public/js/
+	@cp -R node_modules/font-awesome/fonts/ public/fonts/
 
 # Compile SASS to a CSS file
 sass:
