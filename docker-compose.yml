@@ -7,11 +7,11 @@ services:
             - "80:80"
         volumes:
             - ./:/var/www/phpwarks
-            - ./.provisioning/nginx/phpwarks.conf:/etc/nginx/conf.d/default.conf
+            - ./provisioning/nginx/phpwarks.conf:/etc/nginx/conf.d/default.conf
         networks:
             - code-network
     php:
-        build: ./.provisioning/php-fpm
+        build: ./provisioning/php-fpm
         volumes:
             - ./:/var/www/phpwarks
         networks:
