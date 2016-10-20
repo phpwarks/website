@@ -7,7 +7,7 @@
 ####
 ## SASS variables
 ####
-SASS_SRC=web/Core/Asset/Style/main.scss
+SASS_SRC=web/Core/Assets/Styles/main.scss
 SASS_DEST=public/css/style.css
 
 ####
@@ -22,7 +22,7 @@ PROJECT_DIRECTORY := $(shell pwd)
 all: help
 
 # Used for building the dependencies for the project
-build: _building _build composer-install sass
+build: _building _build composer-install yarn sass
 	@echo "Build complete"
 	@echo "Please add phpwarks.dev to your hosts file."
 
@@ -40,6 +40,12 @@ ifeq (${ENV},${PRODUCTION})
 else
 	@docker run --rm -v ${PROJECT_DIRECTORY}:/app composer/composer install
 endif
+
+yarn:
+	@yarn
+	@mkdir public/js
+	@cp node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js public/js/
+	@cp -R node_modules/font-awesome/fonts/ public/fonts/
 
 # Compile SASS to a CSS file
 sass:
