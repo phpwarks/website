@@ -3,38 +3,136 @@
 {% block page_title %}Welcome{% endblock %}
 
 {% block body %}
-    <p>
-        We are situated within the <a href="#show-venue-location" id="show-venue">Engineering and Computing Building, Coventry University</a>. We are located in on the ground floor (the one you enter when you arrive) and are in Room <a href="#show-building-map" id="show-floor-map">ECG 02</a>.
-    </p>
-    <iframe
-        class="[ google-map--venue ][ u-hidden ]"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d611.3115108624615!2d-1.5003070999999988!3d52.40529140000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x65f826135d301789!2sEngineering+and+Computing+Building%2C+Coventry+University!5e0!3m2!1sen!2sus!4v1468961326919"
-        width="100%"
-        height="450"
-        frameborder="0"
-        style="border:0"
-        allowfullscreen
-    ></iframe>
-    <img
-        src="/image/engineering-and-computing-floorplan.jpg"
-        alt="EC Futures Floor Plan"
-        class="[ ec-future-building-map ][ u-hidden ]"
-    >
-    <p>
-        Our parking is situated <a href="#show-car-park-location" id="show-car-park">here</a> and is open until 11pm. 
-    </p>
-    <iframe
-        class="[ google-map--car-park ][ u-hidden ]"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d662.753052565344!2d-1.4987608787060795!3d52.40581124555747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x39dae0222f5e94e3!2sCoventry+University+Student+Car+Park!5e0!3m2!1sen!2sus!4v1469735879936"
-        width="100%"
-        height="450"
-        frameborder="0"
-        style="border:0"
-        allowfullscreen
-    ></iframe>
 
-    <h3 id="upcoming-events">Fetching our upcomming events</h3>
-    <ul app-event="upcoming-events"></ul>
+<section class="section  section--jumbotron">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8  text-center">
+                    <h1>PHP Warwickshire</h1>
+                    <p>A PHP User Group based in Coventry, UK.</p>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section  section--padded  section--social" id="social">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4  text-center">
+                <i class="fa  fa-users  fa-3x" aria-hidden="true"></i>
+                <p>Check out our Meetup page to find info on past and future meetups!</p>
+                <p><a class="btn btn-default" href="http://www.meetup.com/PHP-Warwickshire" role="button" target="_blank">Our Meetups</a></p>
+            </div>
+            <div class="col-md-4  text-center">
+                <i class="fa  fa-twitter  fa-3x" aria-hidden="true"></i>
+                <p>Follow us on Twitter for the latest news on PHP Warwickshire!</p>
+                <p><a class="btn btn-default" href="http://twitter.com/phpwarks" role="button" target="_blank">Our Twitter</a></p>
+            </div>
+            <div class="col-md-4  text-center">
+                <i class="fa  fa-slack  fa-3x" aria-hidden="true"></i>
+                <p>Join our Slack group to keep in touch and interact with everyone between meetups!</p>
+                <p><a class="btn btn-default" href="http://phpwarks.herokuapp.com/" role="button" target="_blank">Our Slack</a></p>
+            </div>
+        </div>                                                                                                                                                   </div>
+    </div>
+</section>
+
+<section class="section  section--padded  section--events" id="events">
+    <div class="container">
+        <div class="row  text-center">
+            <h3 id="upcoming-events">Fetching our upcoming events</h3>
+            <ul app-event="upcoming-events"></ul>
+        </div>
+    </div>
+</section>
+
+<section class="section  section--padded  section--location" id="location">
+    <div class="container">
+        <div class="row">
+            <div class="section__heading">
+                <h3>Where Are We Located?</h3>
+            </div>
+            <div>
+                <ul id="location-tabs" class="nav  nav-pills  text-center" role="tablist">
+                    <li role="presentation" class="active"><a href="#building" aria-controls="building" role="tab" data-toggle="tab">Building</a></li>
+                    <li role="presentation"><a href="#room" aria-controls="room" role="tab" data-toggle="tab">Room</a></li>
+                    <li role="presentation"><a href="#parking" aria-controls="parking" role="tab" data-toggle="tab">Parking</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane  active" id="building">
+                        <p>
+                            We are situated within the <a href="#show-venue-location" id="show-venue">Engineering and Computing Building, Coventry University</a>. We are located in on the ground floor (the one you enter when you arrive) and are in Room <a href="#show-building-map" id="show-floor-map">ECG 02</a>.
+                        </p>
+                        <iframe
+                            class="[ google-map--venue ][ u-hidden ]"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d611.3115108624615!2d-1.5003070999999988!3d52.40529140000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x65f826135d301789!2sEngineering+and+Computing+Building%2C+Coventry+University!5e0!3m2!1sen!2sus!4v1468961326919"
+                            width="100%"
+                            height="450"
+                            frameborder="0"
+                            style="border:0"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="room">
+                        <img
+                            src="/image/engineering-and-computing-floorplan.jpg"
+                            alt="EC Futures Floor Plan"
+                            class="[ ec-future-building-map ][ u-hidden ]"
+                        >
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="parking">
+                        <p>
+                            Our parking is situated <a href="#show-car-park-location" id="show-car-park">here</a> and is open until 11pm. 
+                        </p>
+                        <iframe
+                            class="[ google-map--car-park ][ u-hidden ]"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d662.753052565344!2d-1.4987608787060795!3d52.40581124555747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x39dae0222f5e94e3!2sCoventry+University+Student+Car+Park!5e0!3m2!1sen!2sus!4v1469735879936"
+                            width="100%"
+                            height="450"
+                            frameborder="0"
+                            style="border:0"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section  section--padded  section--sponsors" id="sponsors">
+    <div class="container">
+        <div class="row">
+            <div class="section__heading">
+                <h3 class="heading">Sponsors</h3>
+            </div>
+            <div class="col-md-6  text-center">
+                <h4>
+                    <a 
+                        href="http://www.coventry.ac.uk/study-at-coventry/faculties-and-schools/engineering-environment-and-computing/employability-placements" 
+                        target="_new"
+                    >
+                        EC Futures
+                    </a>
+                </h4>
+                <p>Kindly stepped forward to offer the brilliant Engineering and Computing Building at Coventry University as a venue for each meetup.</p>
+            </div>
+            <div class="col-md-6  text-center">
+                <h4>Your Name Here?</h4>
+                <p>
+                    We are always looking for new sponsors to help out! A lot of effort and resources go into making meetups as good as they can be, 
+                    whilst keeping them free to attend. If you want to sponsor, whether a little or a lot, we would love to hear from you and talk about 
+                    what we can provide in return!
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
 
