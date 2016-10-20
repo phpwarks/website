@@ -1,15 +1,7 @@
-
-$('#show-venue').click(function() {
-    $('.google-map--venue').toggleClass('u-hidden');
-});
-
-$('#show-car-park').click(function() {
-    $('.google-map--car-park').toggleClass('u-hidden');
-});
-
-$('#show-floor-map').click(function() {
-    $('.ec-future-building-map').toggleClass('u-hidden');
-});
+$('#location-tabs a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+})
 
 $.ajax({
     url: '/api/events/upcoming',
