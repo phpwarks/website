@@ -13,10 +13,9 @@ SASS_DEST=public/css/style.css
 ####
 ## Project variables
 ####
+ENV?=dev
 PRODUCTION=prod
-
 PROJECT_DIRECTORY := $(shell pwd)
-
 ## End of variable setup ##
 
 # Defaults for running `make` on its own
@@ -25,6 +24,7 @@ all: help
 # Used for building the dependencies for the project
 build: _building _build composer-install sass
 	@echo "Build complete"
+	@echo "Please add phpwarks.dev to your hosts file."
 
 # Start the docker containers
 run:
@@ -35,12 +35,8 @@ watch:
 	sass --watch  --style compressed --trace $(SASS_SRC):$(SASS_DEST) --sourcemap=none
 
 composer-install:
-ifdef env
-ifeq ($(env),$(PRODUCTION))
+ifeq (${ENV},${PRODUCTION})
 	@docker run --rm -v ${PROJECT_DIRECTORY}:/app composer/composer install -o
-else
-	@docker run --rm -v ${PROJECT_DIRECTORY}:/app composer/composer install
-endif
 else
 	@docker run --rm -v ${PROJECT_DIRECTORY}:/app composer/composer install
 endif
@@ -57,14 +53,15 @@ help:
 	@echo "      build             Install all"
 	@echo "      run               Run `docker-compose up`."
 	@echo "                        You have the possibilities to pass docker-composer arguments like so:"
-	@echo "                        `make ARGS="-d"` will run the command but without tailing the logs"
+	@echo "                        `make ARGS=-d` will run the command but without tailing the logs"
 	@echo "      composer-install  Update/Install composer vendors"
 	@echo "      sass              Compile CSS from the SASS files"
 	@echo ""
 	@echo "  Optional:"
 	@echo ""
 	@echo "      env               Used to set up the environment for production ready,"
-	@echo "                        this will not install development dependencies."
+	@echo "                        this will not install development dependencies. This defaults"
+	@echo "                        to dev."
 	@echo "                        example:"
 	@echo "                            eg: env=prod"
 
