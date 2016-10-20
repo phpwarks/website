@@ -10,7 +10,7 @@ $.ajax({
 }).done(function (response) {
     var upcomingEvents = $('[app-event="upcoming-events"]');
 
-    $('#upcoming-events').text('Upcoming events');
+    $('#upcoming-events').text('Upcoming Events');
 
     if (response.length > 0) {
         $.each(response, function (index, event) {
