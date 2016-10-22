@@ -1,0 +1,20 @@
+{% extends '@Base/base.html.twig' %}
+
+{% block page_title %}Previous events by year{% endblock %}
+
+{% block body %}
+    <p>All events in {{ year }}</p>
+
+    <p>Events in <a href="/events/past/{{ year }}/january">January</a>, {{ year }}</p>
+    <p>Events in <a href="/events/past/{{ year }}/february">February</a>, {{ year }}</p>
+    <p>Events in <a href="/events/past/{{ year }}/march">March</a>, {{ year }}</p>
+    <p>Events in <a href="/events/past/{{ year }}/april">April</a>, {{ year }}</p>
+    <p>Events in <a href="/events/past/{{ year }}/may">May</a>, {{ year }}</p>
+    <p>Events in <a href="/events/past/{{ year }}/june">June</a>, {{ year }}</p>
+    <p>Events in <a href="/events/past/{{ year }}/july">July</a>, {{ year }}</p>
+    <p>Events in <a href="/events/past/{{ year }}/august">August</a>, {{ year }}</p>
+    <p>Events in <a href="/events/past/{{ year }}/september">September</a>, {{ year }}</p>
+    <p>Events in <a href="/events/past/{{ year }}/october">October</a>, {{ year }}</p>
+    <p>Events in <a href="/events/past/{{ year }}/november">November</a>, {{ year }}</p>
+    <p>Events in <a href="/events/past/{{ year }}/december">December</a>, {{ year }}</p>
+{% endblock %}
