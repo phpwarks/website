@@ -1,9 +1,15 @@
-vendor/*
-.vagrant/*
-vagrant.rb
-auth.json
-composer.json
+# Files
 composer.lock
-provision.yml
-Vagrantfile
-ansible
+public/css/
+public/fonts/
+public/js/
+**/.DS_Store
+**/*.swp
+
+# directories
+.idea/
+vendor/
+log/*
+cache/*
+.sass-cache
+node_modules

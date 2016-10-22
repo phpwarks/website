@@ -1,0 +1,62 @@
+$('#location-tabs a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+})
+
+$.ajax({
+    url: '/api/events/upcoming',
+    method: 'GET',
+    dataType: 'json'
+}).done(function (response) {
+    var upcomingEvents = $('[app-event="upcoming-events"]');
+
+    $('#upcoming-events').text('Upcoming Events');
+
+    if (response.length > 0) {
+        $.each(response, function (index, event) {
+            var listItem = document.createElement('li');
+
+            listItem.innerHTML = '<a href="' + event.link + '" target="_blank">' + event.name + '</a> on ' + dateString(event.time) + ' (' + event.yes_rsvp_count + ' attending)';
+            $(upcomingEvents).append(listItem);
+        });
+    } else {
+        var upcomingEventsTitle = $('#upcoming-events');
+        upcomingEventsTitle.html('<del>Upcoming events</del>');
+        upcomingEventsTitle.after('<p>No talks coming, sorry.</p>');
+
+    }
+});
+
+function dateString(timestamp) {
+    var date = new Date(timestamp),
+        months   = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        days     = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        minutes  = date.getMinutes().toString().length === 1 ? '0' + date.getMinutes() : '';
+
+    return days[date.getDay()] +
+        ', ' +
+        ordinal_suffix_of(date.getDay()) +
+        ' ' +
+        months[date.getMonth()] +
+        ' ' +
+        date.getFullYear() +
+        ' at ' +
+        date.getHours() +
+        ':' +
+        minutes;
+}
+
+function ordinal_suffix_of(i) {
+    var j = i % 10,
+        k = i % 100;
+    if (j == 1 && k != 11) {
+        return i + "st";
+    }
+    if (j == 2 && k != 12) {
+        return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+        return i + "rd";
+    }
+    return i + "th";
+}
