@@ -9,7 +9,7 @@ before_script:
   - gem install sass
   - composer install --no-interaction
 
-after_script:
+before_deploy:
   - yarn
   - mkdir public/js
   - cp node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js public/js/
