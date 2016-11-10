@@ -1,4 +1,6 @@
-# Read me
+# Read me 
+
+[![Build Status](https://travis-ci.org/phpwarks/website.svg?branch=master)](https://travis-ci.org/phpwarks/website)
 
 This project is run fully on [Docker](https://docker.com), but don't worry you only have to install the [Docker engine](https://docker.github.io/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/).
 
