@@ -4,10 +4,16 @@ php:
   - '7.0'
 
 before_script:
+  - npm install yarn
+  - yarn install
   - gem install sass
   - composer install --no-interaction
 
 after_script:
+  - yarn
+  - mkdir public/js
+  - cp node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js public/js/
+  - cp -R node_modules/font-awesome/fonts/ public/fonts/
   - sass ./web/Core/Assets/Styles/main.scss:public/css/style.css --sourcemap=none --style compressed --trace
 
 deploy:
