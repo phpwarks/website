@@ -4,6 +4,7 @@ php:
   - '7.0'
 
 before_script:
+  - nvm use v6.0.0
   - npm install yarn
   - gem install sass
   - composer install --no-interaction
