@@ -4,7 +4,11 @@ php:
   - '7.0'
 
 before_script:
+  - gem install sass
   - composer install --no-interaction
+
+after_script:
+  - sass ./web/Core/Assets/Styles/main.scss:public/css/style.css --sourcemap=none --style compressed --trace
 
 deploy:
   provider: heroku
