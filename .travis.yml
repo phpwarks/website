@@ -5,7 +5,6 @@ php:
 
 before_script:
   - npm install yarn
-  - yarn
   - gem install sass
   - composer install --no-interaction
 
