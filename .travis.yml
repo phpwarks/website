@@ -16,6 +16,7 @@ before_deploy:
   - sass ./web/Core/Assets/Styles/main.scss:public/css/style.css --sourcemap=none --style compressed --trace
 
 deploy:
+  skip_cleanup: true
   provider: heroku
   api_key:
     secure: VcL6X31tHdTWnTqoz2xdRdmZwnyK2YtgQ/SdMWDmT39TI0WLMUoLxKtBAkmR8PL1J+nMglU82dHzA1Sw3yeO/rhaIH+xXynCpOJfUkpssiaa55LtHrUEJrk+9i0uBwmJDgSx8OSHDAF1AiIsIq4g52pqJQdymeDeiKIE28cst1yV4HvMBQe+zTxM0Avcw9ZjZEncLvobtKbHRr7+zHFRFaVh0IhYl7r9oV+Jjwm0jA7ThBzot/zTz8hYPprtzmbzdQn2x7xYTLmINeDjOfZZaG4VySZgFDFjfzD/YscbCErAMXgnk9xil6IOglpRuv5Nh+LpP/bOdHB/lejkZXtWJfZRBfo8NmUmDDtXyt2iXxrRp7IME/OaQGdESsSOGvDUWjAylnONhgTo4K2E5IVUPYHJgcDglZWf53SZOlELSyc8k7Z6a1MSgsSEOWq6q94/O8IFNi1b0KlYHXpJgtHHf/wVWUn5s6iQR07fPQXH3bGQQAGc12m7aIHBl3RkOpanGd+jNEbr+SOqhsx5dChU/1hnLd8e6TvUm7YdgfV+tQXqXexU6rnF0J2ijS8E1o4oZM8qy9XDE6yiY/g9md1hZBt5kgOIocUI7wmSiW6xSQG1Nk8utb23DMZRqajeSjZPDm/gmfduZ7I0SsNNvH+3DeVtDoLgkJi+f1hKVCYQbrE=
