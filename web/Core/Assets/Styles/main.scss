@@ -64,8 +64,17 @@ body
         display: table;
         table-layout: fixed;
     }
+}
 
-    .img-responsive {
-        display: inline-block;
+@media (max-width: 767px) {
+    .image--sponsor {
+        width: 100%;
     }
+}
+
+.image--sponsor {
+    display: inline-block;
+    bottom: 0;
+    margin: 5px 0;
+    padding: 5px 0;
 }
