@@ -1,0 +1,80 @@
+body
+{
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.nav-tabs > li, .nav-pills > li
+{
+    float: none;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+
+.section
+{
+    &__heading
+    {
+        margin-bottom: 3em;
+        text-align: center;
+    }
+
+    &--padded
+    {
+        padding: 5em 0;
+    }
+
+    &--events
+    {
+        background-color: #EEEEEE;
+
+        ul {
+
+            li
+            {
+                margin: 2em 0;
+                list-style-type: none;
+            }
+        }
+    }
+
+    &--location
+    {
+        ul
+        {
+            margin-bottom: 2em;
+        }
+    }
+
+    &--sponsors
+    {
+        background-color: #EEEEEE;
+    }
+}
+
+@media (min-width: 768px){
+    .navbar-nav{
+        float:none;
+        margin: 0 auto;
+        display: table;
+        table-layout: fixed;
+    }
+}
+
+@media (max-width: 767px) {
+    .image--sponsor {
+        width: 100%;
+    }
+}
+
+.image--sponsor {
+    display: inline-block;
+    bottom: 0;
+    margin: 5px 0;
+    padding: 5px 0;
+}
+
+.image--logo {
+    display:inline-block;
+}

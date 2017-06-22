@@ -3,11 +3,19 @@
   "version": "1.0.0",
   "description": "PHP Warwickshire's main website repository.",
   "scripts": {
-    "prod": "sass ./web/Core/Assets/Styles/main.scss:public/css/style.css --sourcemap=none --style compressed --trace",
-    "heroku-postinstall": "yarn prod"
+    "build": "./node_modules/.bin/webpack --config webpack.config.js",
+    "heroku-postinstall": "yarn build"
   },
   "dependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "font-awesome": "^4.6.3"
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "node-sass": "^4.5.3",
+    "postcss-cssnext": "^2.11.0",
+    "postcss-loader": "^2.0.6",
+    "postcss-scss": "^1.0.1",
+    "precss": "^1.4.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0"
   }
 }
