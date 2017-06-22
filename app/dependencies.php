@@ -110,9 +110,6 @@ $container['PHPWarks\Welcome\HomeAction'] = function ($c) {
 $container['PHPWarks\API\Internal\Events\UpcomingAction'] = function ($c) {
     return new PHPWarks\API\Internal\Events\UpcomingAction(
         $c->get('api.meetup'),
-        [
-            'sign' => true,
-            'key'  => '683d6d3f25744ae5d631c1a424437',
-        ]
+        []
     );
 };
