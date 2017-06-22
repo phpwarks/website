@@ -1,4 +1,11 @@
 {
+  "name": "phpwarks.co.uk",
+  "version": "1.0.0",
+  "description": "PHP Warwickshire's main website repository.",
+  "scripts": {
+    "prod": "sass ./web/Core/Assets/Styles/main.scss:public/css/style.css --sourcemap=none --style compressed --trace",
+    "heroku-postinstall": "yarn prod"
+  },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
     "font-awesome": "^4.6.3"
