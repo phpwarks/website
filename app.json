@@ -15,6 +15,9 @@
         },
         {
             "url": "heroku/nodejs"
+        },
+        {
+            "url": "https://github.com/jerrysu/heroku-buildpack-webpack"
         }
     ]
 }
