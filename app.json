@@ -1,0 +1,17 @@
+{
+    "name": "phpwarks.co.uk",
+    "scripts": {},
+    "env": {},
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "Free"
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/php"
+        }
+    ]
+}
