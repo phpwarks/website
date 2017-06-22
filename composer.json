@@ -1,9 +1,9 @@
 {
     "name": "phpwarks/website",
-    "description": "The codez for the phpwarks website",
+    "description": "PHP Warwickshire's main website repository.",
     "type": "project",
     "require": {
-        "php": "^7.0",
+        "php": "~7.1.0",
         "slim/slim": "^3.0",
         "slim/twig-view": "^2.0",
         "slim/flash": "^0.1.0",
@@ -14,12 +14,6 @@
         "phpunit/phpunit": "^5.2"
     },
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Nigel Greenway",
-            "email": "github@futurepixels.co.uk"
-        }
-    ],
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
