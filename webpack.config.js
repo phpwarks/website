@@ -26,6 +26,16 @@ module.exports = {
                     }]
                 })
             },
+            {
+                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {limit: 40000}
+                    },
+                    'image-webpack-loader'
+                ]
+            }
         ]
     },
     plugins: [
