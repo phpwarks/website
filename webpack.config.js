@@ -27,15 +27,16 @@ module.exports = {
                 })
             },
             {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
                 use: [
                     {
-                        loader: 'url-loader',
-                        options: {limit: 40000}
-                    },
-                    'image-webpack-loader'
+                        loader: 'file-loader',
+                        options: {
+                            name: './fonts/[name].[ext]'
+                        }
+                    }
                 ]
-            }
+            },
         ]
     },
     plugins: [
