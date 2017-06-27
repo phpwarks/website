@@ -1,3 +1,4 @@
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$icon-font-path: "../fonts/bootstrap/";
 
-@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import "~bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
